@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from '../Header/Header.styles.module.scss'
 import logoSvg from '../../../public/images/logo.svg'
+import { SignInButton } from '../SignInButton/SignInButton'
 
 export const Header = () => {
   return (
@@ -13,6 +14,8 @@ export const Header = () => {
           </a>
           <a href="">Posts</a>
         </nav>
+
+        <SignInButton />
       </div>
     </header>
   )
