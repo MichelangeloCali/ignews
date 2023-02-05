@@ -13,13 +13,14 @@ const Home = () => {
 
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
-          <span>👏 Hey, welcome</span>
+          <span>👏 Olá, seja bem-vindo</span>
           <h1>
-            News about the <span>React</span> world.
+            Novidades e atualizações do <span>React</span>.
           </h1>
           <p>
-            Get access to all the publications <br />
-            <span>for $9.90 month</span>
+            Acesse todas as publicações agora
+            <br />
+            <span>por R$9,90 mês</span>
           </p>
 
           <SubscribeButton />
