@@ -1,3 +1,4 @@
+import { SubscribeButton } from '@/components/SubscribeButton/SubscribeButton'
 import Head from 'next/head'
 import Image from 'next/image'
 import avatarSvg from '../../public/images/avatar.svg'
@@ -20,6 +21,8 @@ const Home = () => {
             Get access to all the publications <br />
             <span>for $9.90 month</span>
           </p>
+
+          <SubscribeButton />
         </section>
 
         <Image src={avatarSvg} alt="girl coding" />
