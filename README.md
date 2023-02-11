@@ -39,6 +39,8 @@ SASS
 
 Stripe (Server-side SDKs REST APIs)
 
+FaunaDB
+
 ## Developer
 
 LinkedIn:
