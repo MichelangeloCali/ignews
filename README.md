@@ -6,7 +6,7 @@
 
 ## How was it developed?
 
-This application was developed to practice the CSR (Client-Side Rendering), SSR (Server-side Rendering) and SSG (static-site Gerenation) concepts.
+It is a small application developed with the React framework, Next JS, in order to practice the concepts of CSR (Client-Side Rendering), SSR (Server-side Rendering) and SSG (Static-site Gerenation). In addition to this, Next's File System Routing and API routes were also implemented. As it is a small application, it made it possible to create a back-end in the front-end of the application, using the Serveless functions concept.
 This news blog has recurring payment, applied with Stripe, technical infrastructure of payment method.
 
 #### blog usage flow architecture:
