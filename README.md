@@ -37,7 +37,7 @@ Typescript
 
 SASS
 
-Stripe (Server-side SDKs REST APIs)
+Stripe (Server-side, API Routes, Webhooks)
 
 FaunaDB
 
