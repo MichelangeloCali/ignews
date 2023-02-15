@@ -41,6 +41,12 @@ Stripe (Server-side, API Routes, Webhooks)
 
 FaunaDB
 
+Prismic CMS (posts content)
+
+## running the application locally
+
+To run next, just give the command `yarn dev` and the front end application will listen on **port: 3000**. To listen to Prisma's webhooks, you'll have to issue the command in another terminal `stripe listen --forward-to localhost:3000/api/webhooks`. To start the CMS Prismac, just give the command `yarn run slicemachine` and it will load the CMS service and make it listen to **port: 9999**.
+
 ## Developer
 
 LinkedIn:
