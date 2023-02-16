@@ -19,7 +19,7 @@ The **SSG (Static Site Generation)** will be used when we can show static conten
 
 ![Screenshot from 2023-02-05 18-04-11](https://user-images.githubusercontent.com/90471567/216846315-b611260e-ef9c-429e-91ed-6062438e97b5.png)
 
-The **SSR (Server-side Rendering)** will be useful when you need indexing, but the data needs to be dynamic, such as a User Session, real-time information of user access. This method in Next JS can be summarized in the image below:
+The **SSR (Server-side Rendering)** will be useful when you need indexing with `getServerSideProps`, but the data needs to be dynamic, such as a User Session, real-time information of user access. This method in Next JS can be summarized in the image below:
 
 ![Screenshot from 2023-02-05 14-30-16](https://user-images.githubusercontent.com/90471567/216836045-c8987af4-2a88-43f0-94f2-9166ad4ee299.png)
 
