@@ -1,0 +1,28 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "spite"
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "Available"
+        }
+      }
+    ]
+  },
+  "content": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Et magna nostrud et sit laboris velit aute cillum proident. Dolore pariatur reprehenderit dolore esse Lorem qui est deserunt ea do elit mollit esse et. Elit velit velit in magna commodo reprehenderit veniam."
+        }
+      }
+    ]
+  }
+}
