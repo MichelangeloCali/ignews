@@ -1,11 +1,24 @@
 import Head from 'next/head'
 import { GetStaticProps } from 'next'
 import Prismic from '@prismicio/client'
-import { getPrismicClient } from '@/services/prismic'
 
+import { getPrismicClient } from '@/services/prismic'
 import styles from './styles.module.scss'
 
-const Posts = () => {
+type Post = {
+  slug: string
+  title: string
+  excerpt: string
+  updatedAt: string
+}
+
+interface PostsProps {
+  posts: Post[]
+}
+
+const Posts = ({ posts }: PostsProps) => {
+  console.log(posts)
+
   return (
     <>
       <Head>
@@ -14,44 +27,20 @@ const Posts = () => {
 
       <main className={styles.container}>
         <div className={styles.posts}>
-          <a href="#">
-            <time>15 de fevereiro de 2023</time>
-            <strong>Serverless: Quando utilizar e aplicações com NodeJS</strong>
-            <p>
-              Ultimamente o termo serverless entrou em ascensão e muito se
-              comenta sobre aplicações utilizarem essa arquitetura como forma de
-              se ganhar performance evitando a configuração de servidores
-              complexos através de containers ou até de arquiteturas mais
-              tradicionais.
-            </p>
-          </a>
-          <a href="#">
-            <time>15 de fevereiro de 2023</time>
-            <strong>Serverless: Quando utilizar e aplicações com NodeJS</strong>
-            <p>
-              Ultimamente o termo serverless entrou em ascensão e muito se
-              comenta sobre aplicações utilizarem essa arquitetura como forma de
-              se ganhar performance evitando a configuração de servidores
-              complexos através de containers ou até de arquiteturas mais
-              tradicionais.
-            </p>
-          </a>
-          <a href="#">
-            <time>15 de fevereiro de 2023</time>
-            <strong>Serverless: Quando utilizar e aplicações com NodeJS</strong>
-            <p>
-              Ultimamente o termo serverless entrou em ascensão e muito se
-              comenta sobre aplicações utilizarem essa arquitetura como forma de
-              se ganhar performance evitando a configuração de servidores
-              complexos através de containers ou até de arquiteturas mais
-              tradicionais.
-            </p>
-          </a>
+          {posts.map((post) => (
+            <a key={post.slug} href="#">
+              <time>{post.updatedAt}</time>
+              <strong>{post.title}</strong>
+              <p>{post.excerpt}</p>
+            </a>
+          ))}
         </div>
       </main>
     </>
   )
 }
+
+export default Posts
 
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient()
@@ -64,11 +53,30 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   )
 
-  console.log(JSON.stringify(response, null, 2))
+  const posts = response.results.map((post: any) => {
+    console.log(post.data.title)
+
+    return {
+      slug: post.uid,
+      title: post.data.title[0].text,
+      excerpt:
+        post.data.content.find(
+          (content: { type: string }) => content.type === 'paragraph'
+        )?.text ?? '',
+      updatedAt: new Date(post.last_publication_date).toLocaleDateString(
+        'pt-BR',
+        {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric',
+        }
+      ),
+    }
+  })
 
   return {
-    props: {},
+    props: {
+      posts,
+    },
   }
 }
-
-export default Posts
