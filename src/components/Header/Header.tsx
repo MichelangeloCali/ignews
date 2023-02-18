@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import Image from 'next/image'
 
 import styles from '../Header/Header.module.scss'
 import logoSvg from '../../../public/images/logo.svg'
 import { SignInButton } from '../SignInButton/SignInButton'
+import { ActiveLink } from '../ActiveLink/Activelink'
 
 export const Header = () => {
   return (
@@ -11,12 +11,12 @@ export const Header = () => {
       <div className={styles.headerContent}>
         <Image src={logoSvg} alt="ignews seu blog de tecnologia" />
         <nav>
-          <Link href="/" className={styles.active}>
+          <ActiveLink activeClassName={styles.active} href="/">
             Home
-          </Link>
-          <Link href="/posts" prefetch>
+          </ActiveLink>
+          <ActiveLink activeClassName={styles.active} prefetch href="/posts">
             Posts
-          </Link>
+          </ActiveLink>
         </nav>
 
         <SignInButton />

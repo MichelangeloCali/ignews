@@ -17,8 +17,6 @@ interface PostsProps {
 }
 
 const Posts = ({ posts }: PostsProps) => {
-  console.log(posts)
-
   return (
     <>
       <Head>
@@ -54,8 +52,6 @@ export const getStaticProps: GetStaticProps = async () => {
   )
 
   const posts = response.results.map((post: any) => {
-    console.log(post.data.title)
-
     return {
       slug: post.uid,
       title: post.data.title[0].text,
