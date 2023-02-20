@@ -1,11 +1,17 @@
+import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { getSession } from 'next-auth/react'
-import Head from 'next/head'
 import { Document } from '@prismicio/client/types/documents'
 import * as prismicH from '@prismicio/helpers'
 
 import { getPrismicClient } from '@/services/prismic'
-import styles from './post.module.scss'
+import styles from '../posts/post.module.scss'
+import { inspect } from 'node:util'
+
+interface IPrismicResponseData {
+  title: any
+  content: any
+}
 
 interface PostProps {
   post: {
@@ -56,17 +62,19 @@ export const getServerSideProps: GetServerSideProps = async ({
     }
   }
 
-  const response: Document = await prismic.getByUID(
+  const response: Document<IPrismicResponseData> = await prismic.getByUID(
     'publication',
     String(slug),
     {}
   )
 
+  console.log(inspect(response, { depth: null }))
+
   const post = {
     slug,
-    title: prismicH.asText(response.data.title),
-    content: prismicH.asHTML(response.data.content),
-    updatedAt: new Date(response.last_publication_date!).toLocaleDateString(
+    title: prismicH.asText(response?.data.title),
+    content: prismicH.asHTML(response?.data.content),
+    updatedAt: new Date(response?.last_publication_date!).toLocaleDateString(
       'pt-BR',
       {
         day: '2-digit',
@@ -76,6 +84,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     ),
   }
 
+  console.log(inspect(post, { depth: null }))
   return {
     props: {
       post,
